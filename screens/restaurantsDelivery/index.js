@@ -10,6 +10,7 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 
 import Input from "../../components/input";
+import { color } from "react-native-reanimated";
 
 function RestaurantsDelivery() {
   let card = [
@@ -35,11 +36,30 @@ function RestaurantsDelivery() {
       text: "Juice",
     },
   ];
+
+  let restaurant = [
+    {
+      name: "Al Madina Restaurant & Grill",
+      imgRestaurant: require("../../assets/products/res1.jpg"),
+    },
+    {
+      name: "Al Shahzaib Restaurant",
+      imgRestaurant: require("../../assets/products/res2.jpg"),
+    },
+    {
+        name: "KabaJees Restaurant & Grill",
+        imgRestaurant: require("../../assets/products/res3.jpg"),
+      },
+      {
+        name: "Kaybees Restaurant & Grill",
+        imgRestaurant: require("../../assets/products/res4.jpg"),
+      },
+  ];
   return (
     <ScrollView>
       <View style={styles.inpRow}>
         <View>
-          <Input placeholder=' Search Your Food' />
+          <Input placeholder=" Search Your Food" />
         </View>
         <View>
           <TouchableOpacity style={styles.filter}>
@@ -47,7 +67,11 @@ function RestaurantsDelivery() {
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView horizontal={true} contentContainerStyle={styles.cardsInRow}>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        horizontal={true}
+        contentContainerStyle={styles.cardsInRow}
+      >
         {card.map((item) => {
           return (
             <TouchableOpacity style={styles.Pick}>
@@ -61,6 +85,23 @@ function RestaurantsDelivery() {
                 />
               </View>
             </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
+      <View style={styles.ditex}>
+        <Text style={styles.resTex}>Your Restaurants</Text>
+      </View>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        horizontal={true}
+        style={styles.rowRes}
+      >
+        {restaurant.map((item) => {
+          return (
+            <View style={styles.restaurantRow}>
+              <Image style={styles.resImg} source={item.imgRestaurant} />
+              <Text style={styles.nameRes}>{item.name}</Text>
+            </View>
           );
         })}
       </ScrollView>
@@ -86,7 +127,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center",
-    marginLeft:10
+    marginLeft: 10,
   },
   food: {
     color: "white",
@@ -118,5 +159,32 @@ const styles = StyleSheet.create({
   img2: {
     width: 60,
     height: 60,
+  },
+  resTex: {
+    color: "black",
+    fontSize: 20,
+    fontWeight: "200",
+  },
+  ditex: {
+    marginTop: 20,
+    marginLeft: 10,
+  },
+  resImg: {
+    width: 240,
+    height: 170,
+    borderRadius: 12,
+  },
+  nameRes: {
+    fontSize: 18,
+    fontWeight: "200",
+    marginTop: 5,
+  },
+  rowRes: {
+    display: "flex",
+    flexDirection: "row",
+    marginTop: 20,
+  },
+  restaurantRow: {
+    marginLeft: 10,
   },
 });
