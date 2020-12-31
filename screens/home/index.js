@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function Home() {
+function Home({ navigation }) {
   return (
     <>
       <ScrollView contentContainerStyle={styles.main}>
@@ -26,7 +26,7 @@ function Home() {
           <Text>Go and Checkout Your Food</Text>
         </View>
         <View style={styles.restaurantCardContainer}>
-          <TouchableOpacity style={styles.restaurants}>
+          <TouchableOpacity onPress={()=>{navigation.navigate("RestaurantsDelivery");}} style={styles.restaurants}>
             <View>
               <Text style={styles.resText}>Food Delivery</Text>
             </View>
