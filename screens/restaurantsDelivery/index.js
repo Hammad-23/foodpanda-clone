@@ -16,24 +16,31 @@ function RestaurantsDelivery() {
   let card = [
     {
       text: "Burgers",
+      cardImg:require('../../assets/images/burger2.png')
     },
     {
       text: "Biryani",
+      cardImg:require('../../assets/images/biryani2.png')
     },
     {
       text: "Fast-Food",
+      cardImg:require('../../assets/images/fastfood.png')
     },
     {
       text: "Home-Food",
+      cardImg:require('../../assets/images/homefood.png')
     },
     {
       text: "Fries",
+      cardImg:require('../../assets/images/fries2.png')
     },
     {
       text: "Beverages",
+      cardImg:require('../../assets/images/beverages.png')
     },
     {
       text: "Juice",
+      cardImg:require('../../assets/images/juice.png')
     },
   ];
 
@@ -81,7 +88,7 @@ function RestaurantsDelivery() {
               <View>
                 <Image
                   style={styles.img2}
-                  source={require("../../assets/images/burger2.png")}
+                  source={item.cardImg}
                 />
               </View>
             </TouchableOpacity>
