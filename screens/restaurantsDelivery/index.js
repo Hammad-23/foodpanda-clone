@@ -61,6 +61,14 @@ function RestaurantsDelivery() {
         name: "Kaybees Restaurant & Grill",
         imgRestaurant: require("../../assets/products/res4.jpg"),
       },
+      {
+        name: "Kaybees Restaurant & Grill",
+        imgRestaurant: require("../../assets/products/res5.jpg"),
+      },
+      {
+        name: "Kaybees Restaurant & Grill",
+        imgRestaurant: require("../../assets/products/res4.jpg"),
+      },
   ];
   return (
     <ScrollView>
@@ -108,10 +116,61 @@ function RestaurantsDelivery() {
             <View style={styles.restaurantRow}>
               <Image style={styles.resImg} source={item.imgRestaurant} />
               <Text style={styles.nameRes}>{item.name}</Text>
+              <Text>Rs 500 minimum : Free Delivery</Text>
             </View>
           );
         })}
       </ScrollView>
+      <View style={styles.ditex}>
+        <Text style={styles.resTex}>New On FoodPanda</Text>
+      </View>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        horizontal={true}
+        style={styles.rowRes}
+      >
+        {restaurant.map((item) => {
+          return (
+            <View style={styles.restaurantRow}>
+              <Image style={styles.resImg} source={item.imgRestaurant} />
+              <Text style={styles.nameRes}>{item.name}</Text>
+              <Text>Rs 500 minimum : Free Delivery</Text>
+            </View>
+          );
+        })}
+      </ScrollView>
+      <View style={styles.ditex}>
+        <Text style={styles.resTex}>Double Deals</Text>
+      </View>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        horizontal={true}
+        style={styles.rowRes}
+      >
+        {restaurant.map((item) => {
+          return (
+            <View style={styles.restaurantRow}>
+              <Image style={styles.resImg} source={item.imgRestaurant} />
+              <Text style={styles.nameRes}>{item.name}</Text>
+              <Text>Rs 500 minimum : Free Delivery</Text>
+            </View>
+          );
+        })}
+      </ScrollView>
+      <View style={styles.ditex}>
+        <Text style={styles.resTex}>All Restaurants</Text>
+      </View>
+      <View style={styles.allRes}>
+        {restaurant.map((item)=>{
+          return(
+            <View style={styles.restaurantCol}>
+            <Image style={styles.resImgCol} source={item.imgRestaurant} />
+            <Text style={styles.nameRes}>{item.name}</Text>
+            <Text>Rs 500 minimum : Free Delivery</Text>
+          </View>
+          )
+        })}
+      </View>
     </ScrollView>
   );
 }
@@ -194,4 +253,18 @@ const styles = StyleSheet.create({
   restaurantRow: {
     marginLeft: 10,
   },
+  restaurantCol: {
+    marginTop:20
+  },
+  resImgCol: {
+    width:330,
+    height:200,
+    borderRadius:12
+  },
+  allRes: {
+    display:'flex',
+    flexDirection:'column',
+    justifyContent:'center',
+    alignItems:'center'
+  }
 });
