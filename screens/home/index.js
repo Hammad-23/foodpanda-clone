@@ -26,7 +26,12 @@ function Home({ navigation }) {
           <Text>Go and Checkout Your Food</Text>
         </View>
         <View style={styles.restaurantCardContainer}>
-          <TouchableOpacity onPress={()=>{navigation.navigate("RestaurantsDelivery");}} style={styles.restaurants}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("RestaurantsDelivery");
+            }}
+            style={styles.restaurants}
+          >
             <View>
               <Text style={styles.resText}>Food Delivery</Text>
             </View>
