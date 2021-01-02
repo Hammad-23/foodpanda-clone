@@ -6,41 +6,42 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import Input from "../../components/input";
 import { color } from "react-native-reanimated";
 
-function RestaurantsDelivery() {
+function RestaurantsDelivery({ navigation }) {
   let card = [
     {
       text: "Burgers",
-      cardImg:require('../../assets/images/burger2.png')
+      cardImg: require("../../assets/images/burger2.png"),
     },
     {
       text: "Biryani",
-      cardImg:require('../../assets/images/biryani2.png')
+      cardImg: require("../../assets/images/biryani2.png"),
     },
     {
       text: "Fast-Food",
-      cardImg:require('../../assets/images/fastfood.png')
+      cardImg: require("../../assets/images/fastfood.png"),
     },
     {
       text: "Home-Food",
-      cardImg:require('../../assets/images/homefood.png')
+      cardImg: require("../../assets/images/homefood.png"),
     },
     {
       text: "Fries",
-      cardImg:require('../../assets/images/fries2.png')
+      cardImg: require("../../assets/images/fries2.png"),
     },
     {
       text: "Beverages",
-      cardImg:require('../../assets/images/beverages.png')
+      cardImg: require("../../assets/images/beverages.png"),
     },
     {
       text: "Juice",
-      cardImg:require('../../assets/images/juice.png')
+      cardImg: require("../../assets/images/juice.png"),
     },
   ];
 
@@ -54,21 +55,21 @@ function RestaurantsDelivery() {
       imgRestaurant: require("../../assets/products/res2.jpg"),
     },
     {
-        name: "KabaJees Restaurant & Grill",
-        imgRestaurant: require("../../assets/products/res3.jpg"),
-      },
-      {
-        name: "Kaybees Restaurant & Grill",
-        imgRestaurant: require("../../assets/products/res4.jpg"),
-      },
-      {
-        name: "Kaybees Restaurant & Grill",
-        imgRestaurant: require("../../assets/products/res5.jpg"),
-      },
-      {
-        name: "Kaybees Restaurant & Grill",
-        imgRestaurant: require("../../assets/products/res4.jpg"),
-      },
+      name: "KabaJees Restaurant & Grill",
+      imgRestaurant: require("../../assets/products/res3.jpg"),
+    },
+    {
+      name: "Kaybees Restaurant & Grill",
+      imgRestaurant: require("../../assets/products/res4.jpg"),
+    },
+    {
+      name: "Kaybees Restaurant & Grill",
+      imgRestaurant: require("../../assets/products/res5.jpg"),
+    },
+    {
+      name: "Kaybees Restaurant & Grill",
+      imgRestaurant: require("../../assets/products/res4.jpg"),
+    },
   ];
   return (
     <ScrollView>
@@ -94,10 +95,7 @@ function RestaurantsDelivery() {
                 <Text style={styles.food}>{item.text}</Text>
               </View>
               <View>
-                <Image
-                  style={styles.img2}
-                  source={item.cardImg}
-                />
+                <Image style={styles.img2} source={item.cardImg} />
               </View>
             </TouchableOpacity>
           );
@@ -114,7 +112,11 @@ function RestaurantsDelivery() {
         {restaurant.map((item) => {
           return (
             <View style={styles.restaurantRow}>
-              <Image style={styles.resImg} source={item.imgRestaurant} />
+              <Image
+                onStartShouldSetResponder={() => {navigation.navigate("Restaurant View")}}
+                style={styles.resImg}
+                source={item.imgRestaurant}
+              />
               <Text style={styles.nameRes}>{item.name}</Text>
               <Text>Rs 500 minimum : Free Delivery</Text>
             </View>
@@ -161,14 +163,14 @@ function RestaurantsDelivery() {
         <Text style={styles.resTex}>All Restaurants</Text>
       </View>
       <View style={styles.allRes}>
-        {restaurant.map((item)=>{
-          return(
+        {restaurant.map((item) => {
+          return (
             <View style={styles.restaurantCol}>
-            <Image style={styles.resImgCol} source={item.imgRestaurant} />
-            <Text style={styles.nameRes}>{item.name}</Text>
-            <Text>Rs 500 minimum : Free Delivery</Text>
-          </View>
-          )
+              <Image style={styles.resImgCol} source={item.imgRestaurant} />
+              <Text style={styles.nameRes}>{item.name}</Text>
+              <Text>Rs 500 minimum : Free Delivery</Text>
+            </View>
+          );
         })}
       </View>
     </ScrollView>
@@ -254,17 +256,17 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   restaurantCol: {
-    marginTop:20
+    marginTop: 20,
   },
   resImgCol: {
-    width:330,
-    height:200,
-    borderRadius:12
+    width: 330,
+    height: 200,
+    borderRadius: 12,
   },
   allRes: {
-    display:'flex',
-    flexDirection:'column',
-    justifyContent:'center',
-    alignItems:'center'
-  }
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
