@@ -8,13 +8,16 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function RestaurantView() {
+function RestaurantView(props) {
+  console.log(props.route.params.item.name)
+  let img=props.route.params.item.imgRestaurant
+
   return (
     <ScrollView>
       <View>
         <Image
           style={styles.imgContainer}
-          source={require("../../assets/products/res3.jpg")}
+          source={img}
         />
       </View>
     </ScrollView>

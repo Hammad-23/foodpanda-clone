@@ -113,7 +113,11 @@ function RestaurantsDelivery({ navigation }) {
           return (
             <View style={styles.restaurantRow}>
               <Image
-                onStartShouldSetResponder={() => {navigation.navigate("Restaurant View")}}
+                onStartShouldSetResponder={() => {
+                  navigation.navigate("Restaurant View", {
+                    item,
+                  });
+                }}
                 style={styles.resImg}
                 source={item.imgRestaurant}
               />
@@ -134,7 +138,15 @@ function RestaurantsDelivery({ navigation }) {
         {restaurant.map((item) => {
           return (
             <View style={styles.restaurantRow}>
-              <Image style={styles.resImg} source={item.imgRestaurant} />
+              <Image
+                onStartShouldSetResponder={() => {
+                  navigation.navigate("Restaurant View", {
+                    item,
+                  });
+                }}
+                style={styles.resImg}
+                source={item.imgRestaurant}
+              />
               <Text style={styles.nameRes}>{item.name}</Text>
               <Text>Rs 500 minimum : Free Delivery</Text>
             </View>
@@ -152,7 +164,15 @@ function RestaurantsDelivery({ navigation }) {
         {restaurant.map((item) => {
           return (
             <View style={styles.restaurantRow}>
-              <Image style={styles.resImg} source={item.imgRestaurant} />
+              <Image
+                onStartShouldSetResponder={() => {
+                  navigation.navigate("Restaurant View", {
+                    item,
+                  });
+                }}
+                style={styles.resImg}
+                source={item.imgRestaurant}
+              />
               <Text style={styles.nameRes}>{item.name}</Text>
               <Text>Rs 500 minimum : Free Delivery</Text>
             </View>
@@ -166,7 +186,15 @@ function RestaurantsDelivery({ navigation }) {
         {restaurant.map((item) => {
           return (
             <View style={styles.restaurantCol}>
-              <Image style={styles.resImgCol} source={item.imgRestaurant} />
+              <Image
+                onStartShouldSetResponder={() => {
+                  navigation.navigate("Restaurant View", {
+                    item,
+                  });
+                }}
+                style={styles.resImgCol}
+                source={item.imgRestaurant}
+              />
               <Text style={styles.nameRes}>{item.name}</Text>
               <Text>Rs 500 minimum : Free Delivery</Text>
             </View>
