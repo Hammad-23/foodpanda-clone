@@ -7,7 +7,9 @@ import {
   Image,
   TouchableOpacity,
   Alert,
+  fixed
 } from "react-native";
+import AppButton from "../../components/button";
 
 function RestaurantMenu() {
   let menu = [
@@ -50,21 +52,26 @@ function RestaurantMenu() {
   ];
   return (
     <ScrollView>
-      {menu.map((item) => {
-        return (
-          <View style={styles.dishRow}>
-            <View style={{ marginLeft: 20 }}>
-              <Text style={styles.dishHead}>{item.dish}</Text>
-              <Text style={{ marginTop: 6 }}>
-                Chicken,Mayo,Ketchup,Kentucky
-              </Text>
+      <ScrollView>
+        {menu.map((item) => {
+          return (
+            <View style={styles.dishRow}>
+              <View style={{ marginLeft: 20 }}>
+                <Text style={styles.dishHead}>{item.dish}</Text>
+                <Text style={{ marginTop: 6 }}>
+                  Chicken,Mayo,Ketchup,Kentucky
+                </Text>
+              </View>
+              <View style={{ marginRight: 20 }}>
+                <Image style={styles.img2} source={item.dishImg} />
+              </View>
             </View>
-            <View style={{ marginRight: 20 }}>
-              <Image style={styles.img2} source={item.dishImg} />
-            </View>
-          </View>
-        );
-      })}
+          );
+        })}
+      </ScrollView>
+      <View style={styles.lastBtn}>
+        <AppButton title="Add to Cart" />
+      </View>
     </ScrollView>
   );
 }
@@ -89,5 +96,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "200",
     fontFamily: "sans-serif",
+  },
+  lastBtn: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop:20
   },
 });
