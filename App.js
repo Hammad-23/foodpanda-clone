@@ -17,36 +17,42 @@ import { AntDesign } from "@expo/vector-icons";
 import MyDrawer from "./navigations/drawerNavigation";
 import { useIsDrawerOpen } from "@react-navigation/drawer";
 import { openDrawer } from "@react-navigation/drawer";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import Profile from "./screens/profile";
+import { DrawerActions } from "@react-navigation/drawer";
 
 export default function App({ navigation }) {
   const Stack = createStackNavigator();
+  const Drawer = createDrawerNavigator();
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          options={{
-            headerLeft: () => (
-              <AntDesign
-                onPress={() => {
-                  navigation.openDrawer();
-                }}
-                style={{ marginLeft: 10 }}
-                name="bars"
-                size={28}
-                color="black"
-              />
-            ),
-          }}
-          name="Home"
-          component={Home}
-        />
-        <Stack.Screen
-          name="RestaurantsDelivery"
-          component={RestaurantsDelivery}
-        />
-        <Stack.Screen name="Restaurant View" component={RestaurantView} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            options={{
+              headerLeft: () => (
+                <AntDesign
+                  onPress={() => {
+                    navigation.dispatch(DrawerActions.openDrawer());
+                  }}
+                  style={{ marginLeft: 10 }}
+                  name="bars"
+                  size={28}
+                  color="black"
+                />
+              ),
+            }}
+            name="Home"
+            component={Home}
+          />
+          <Stack.Screen
+            name="RestaurantsDelivery"
+            component={RestaurantsDelivery}
+          />
+          <Stack.Screen name="Restaurant View" component={RestaurantView} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 

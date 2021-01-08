@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   restaurants: {
-    backgroundColor: "#b00e39",
+    backgroundColor: "#b81c5d",
     width: 340,
     height: 180,
     borderRadius: 12,

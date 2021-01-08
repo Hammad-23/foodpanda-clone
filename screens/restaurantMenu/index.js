@@ -5,9 +5,9 @@ import {
   View,
   ScrollView,
   Image,
+  
   TouchableOpacity,
   Alert,
-  fixed
 } from "react-native";
 import AppButton from "../../components/button";
 
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginTop:20
+    marginTop: 20,
+    flex: 1,
   },
 });
