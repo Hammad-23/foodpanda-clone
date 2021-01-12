@@ -20,6 +20,7 @@ import { openDrawer } from "@react-navigation/drawer";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Profile from "./screens/profile";
 import { DrawerActions } from "@react-navigation/drawer";
+import LogIn from './screens/login'
 
 export default function App({ navigation }) {
   const Stack = createStackNavigator();
@@ -27,7 +28,7 @@ export default function App({ navigation }) {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="LogIn">
           <Stack.Screen
             options={{
               headerLeft: () => (
@@ -41,6 +42,14 @@ export default function App({ navigation }) {
                   color="black"
                 />
               ),
+              headerRight: () => (
+                <AntDesign
+                  style={{ marginRight: 10 }}
+                  name="shoppingcart"
+                  size={24}
+                  color="black"
+                />
+              ),
             }}
             name="Home"
             component={Home}
@@ -50,6 +59,7 @@ export default function App({ navigation }) {
             component={RestaurantsDelivery}
           />
           <Stack.Screen name="Restaurant View" component={RestaurantView} />
+          <Stack.Screen name="LogIn" component={LogIn} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 
-import {View,Text} from 'react-native'
-
+import { View, Text } from "react-native";
 
 export default function Profile() {
-    return(
-        <View>
-            <Text>Hello</Text>
-        </View>
-    )
-    
+  return (
+    <View>
+      <Text>Hello</Text>
+      <Text>world</Text>
+    </View>
+  );
 }

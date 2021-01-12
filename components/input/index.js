@@ -4,7 +4,13 @@ import { TextInput, Text, StyleSheet, View } from "react-native";
 function Input(props) {
   return (
     <View style={styles.cont}>
-      <TextInput placeholder={props.placeholder} style={styles.inp} />
+      <TextInput
+        onChange={props.onChange}
+        placeholder={props.placeholder}
+        style={styles.inp}
+        keyboardType = {props.keyboardType}
+        secureTextEntry={props.secure}
+      />
     </View>
   );
 }
