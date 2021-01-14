@@ -10,8 +10,9 @@ import {
 import Input from "../../components/input";
 import AppButton from "../../components/button";
 import { useState } from "react";
+import { AsyncStorage } from "react-native";
 
-export default function SignUp() {
+export default function SignUp({navigation}) {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -25,6 +26,9 @@ export default function SignUp() {
 
   const register = () => {
     console.log(profileInfo);
+    AsyncStorage.setItem("userInfo", JSON.stringify(profileInfo));
+    navigation.navigate('LogIn')
+
   };
 
   return (

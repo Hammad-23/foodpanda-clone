@@ -20,13 +20,16 @@ import { openDrawer } from "@react-navigation/drawer";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Profile from "./screens/profile";
 import { DrawerActions } from "@react-navigation/drawer";
-import LogIn from './screens/login'
-import SignUp from './screens/signup'
-import Welcome from './screens/welcome'
+import LogIn from "./screens/login";
+import SignUp from "./screens/signup";
+import Welcome from "./screens/welcome";
+import { useState } from "react/cjs/react.development";
+import { AsyncStorage } from "react-native";
 
 export default function App({ navigation }) {
   const Stack = createStackNavigator();
   const Drawer = createDrawerNavigator();
+  const [arrow, setArrow] = useState(true);
   return (
     <>
       <NavigationContainer>
@@ -46,6 +49,9 @@ export default function App({ navigation }) {
               ),
               headerRight: () => (
                 <AntDesign
+                  onPress={() => {
+                    AsyncStorage.removeItem("userInfo");
+                  }}
                   style={{ marginRight: 10 }}
                   name="shoppingcart"
                   size={24}
@@ -61,7 +67,11 @@ export default function App({ navigation }) {
             component={RestaurantsDelivery}
           />
           <Stack.Screen name="Restaurant View" component={RestaurantView} />
-          <Stack.Screen name="LogIn" component={LogIn} />
+          <Stack.Screen
+            options={{ headerShown: arrow }}
+            name="LogIn"
+            component={LogIn}
+          />
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="Welcome" component={Welcome} />
         </Stack.Navigator>

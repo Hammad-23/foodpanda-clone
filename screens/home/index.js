@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,8 +8,17 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import { AsyncStorage } from "react-native";
+import { useState } from "react/cjs/react.development";
 
 function Home({ navigation }) {
+  const [user, setUser] = useState("");
+  useEffect(async () => {
+    const value = await AsyncStorage.getItem("userInfo");
+    const data = JSON.parse(value);
+    setUser(data.fullName);
+  }, []);
+
   return (
     <>
       <ScrollView contentContainerStyle={styles.main}>
@@ -19,7 +29,7 @@ function Home({ navigation }) {
           />
         </View>
         <View style={styles.textConatiner}>
-          <Text style={styles.text}>Good Evening, Syed</Text>
+          <Text style={styles.text}>{`Good Evening, ${user}`} </Text>
           <Text style={styles.secondLineText}>
             There are 411 restaurants in your area,
           </Text>
