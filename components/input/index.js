@@ -5,7 +5,7 @@ function Input(props) {
   return (
     <View style={styles.cont}>
       <TextInput
-        onChange={props.onChange}
+        onChangeText={props.onChange}
         placeholder={props.placeholder}
         style={styles.inp}
         keyboardType = {props.keyboardType}
