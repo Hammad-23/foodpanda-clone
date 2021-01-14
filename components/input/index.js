@@ -10,6 +10,7 @@ function Input(props) {
         style={styles.inp}
         keyboardType = {props.keyboardType}
         secureTextEntry={props.secure}
+        placeholderTextColor='#b81c5d'
       />
     </View>
   );

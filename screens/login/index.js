@@ -14,20 +14,16 @@ import AppButton from "../../components/button";
 export default function LogIn() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.input}>
-        <Input placeholder="Enter Your FullName" />
-      </View>
+     
       <View style={styles.input}>
         <Input placeholder="Enter Your Email" />
       </View>
-      <View style={styles.input}>
-        <Input keyboardType="numeric" placeholder="Enter Your Number " />
-      </View>
+    
       <View style={styles.input}>
         <Input secure={true} placeholder="Enter Your Password" />
       </View>
       <View style={styles.btn}>
-        <AppButton title="Sign Up" />
+        <AppButton title="Log In" />
       </View>
     </ScrollView>
   );

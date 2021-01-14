@@ -21,6 +21,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Profile from "./screens/profile";
 import { DrawerActions } from "@react-navigation/drawer";
 import LogIn from './screens/login'
+import SignUp from './screens/signup'
+import Welcome from './screens/welcome'
 
 export default function App({ navigation }) {
   const Stack = createStackNavigator();
@@ -28,7 +30,7 @@ export default function App({ navigation }) {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="LogIn">
+        <Stack.Navigator initialRouteName="Welcome">
           <Stack.Screen
             options={{
               headerLeft: () => (
@@ -60,6 +62,8 @@ export default function App({ navigation }) {
           />
           <Stack.Screen name="Restaurant View" component={RestaurantView} />
           <Stack.Screen name="LogIn" component={LogIn} />
+          <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="Welcome" component={Welcome} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
